@@ -1,0 +1,29 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/php@1.1.0
+
+jobs:
+  test:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          name: Update apt-get
+          command: sudo apt-get update
+      - run:
+          name: Install PHP libraries
+          command: composer install -n --prefer-dist
+      - run:
+          name: Generate php artisan key
+          command: php artisan key:generate --env=testing
+      - run:
+          name: Run PHPUnit
+          command: vendor/bin/phpunit
+
+workflows:
+  test:
+    jobs:
+      - test
