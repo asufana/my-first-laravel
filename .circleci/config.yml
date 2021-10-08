@@ -1,0 +1,37 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: circleci/php:8.0.11
+    working_directory: ~/repo
+    steps:
+      - run:
+          name: Install System Dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y git
+            sudo composer self-update
+
+      - checkout
+
+      - restore_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+      - run: composer install -n --prefer-dist
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+
+      - run:
+          name: Setup Environment
+          command: |
+            cp .env.example .env
+            php artisan key:generate
+            touch ./storage/logs/laravel.log
+      - run: composer test
+
+workflows:
+  test:
+    jobs:
+      - test
