@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: Migrate Database
-          command: php artisan migrate --force
+          command: composer migrate
 
       - run: composer test
 

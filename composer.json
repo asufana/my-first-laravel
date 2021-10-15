@@ -9,15 +9,11 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
-        "laravel/sanctum": "^2.11",
         "psr/log": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.10",
-        "facade/ignition": "^2.5",
-        "fakerphp/faker": "^1.9.1",
         "friendsofphp/php-cs-fixer": "3.1.0",
-        "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.8"
@@ -57,6 +53,10 @@
             "php artisan ide-helper:models -N",
             "php artisan config:clear",
             "./vendor/bin/php-cs-fixer fix -v"
+        ],
+        "migrate": [
+            "php artisan migrate:fresh --path='database/migrations/*'",
+            "php artisan migrate       --path='database/migrations/*'"
         ]
     },
     "extra": {
