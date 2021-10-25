@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int id
+ * @template T
  * @method static orderBy(string $string, string $string1)
+ *
+ * @property int id
  */
 abstract class AbstractEloquent extends Model {
 
@@ -27,9 +29,10 @@ abstract class AbstractEloquent extends Model {
 
     /**
      * 取得処理
+     * @return T|null
      */
-    public function findEloquent(int $id): ?AbstractEloquent {
-        /** @var AbstractEloquent $eloquent */
+    public function findEloquent(int $id) {
+        /** @var T $eloquent */
         /** @noinspection PhpUnnecessaryLocalVariableInspection */
         /** @noinspection OneTimeUseVariablesInspection */
         $eloquent = self::getBuilder()->find($id);

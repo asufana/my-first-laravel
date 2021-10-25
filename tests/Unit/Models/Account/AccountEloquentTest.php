@@ -3,16 +3,18 @@
 namespace Tests\Unit\Models\Account;
 
 use App\Models\Account\AccountEloquent;
-use App\Models\Abstract\AbstractEloquent;
 use Tests\Unit\Models\Abstract\AbstractEloquentTestCase;
 
+/**
+ * @extends AbstractEloquentTestCase<AccountEloquent>
+ */
 class AccountEloquentTest extends AbstractEloquentTestCase {
 
-    public function emptyInstance(): AbstractEloquent {
+    public function emptyInstance(): AccountEloquent {
         return new AccountEloquent();
     }
 
-    public function createInstance(): AbstractEloquent {
+    public function createInstance(): AccountEloquent {
         $eloquent = $this->emptyInstance();
         $eloquent->name = 'test';
 

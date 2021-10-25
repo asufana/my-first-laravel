@@ -5,6 +5,7 @@ namespace App\Models\Account;
 use App\Models\Abstract\AbstractEloquent;
 
 /**
+ * @extends AbstractEloquent<AccountEloquent>
  * @property string name
  */
 class AccountEloquent extends AbstractEloquent {

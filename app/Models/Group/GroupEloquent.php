@@ -5,6 +5,7 @@ namespace App\Models\Group;
 use App\Models\Abstract\AbstractEloquent;
 
 /**
+ * @extends AbstractEloquent<GroupEloquent>
  * @property string name
  */
 class GroupEloquent extends AbstractEloquent {
