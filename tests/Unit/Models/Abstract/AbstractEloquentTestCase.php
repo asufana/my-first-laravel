@@ -2,27 +2,29 @@
 
 namespace Tests\Unit\Models\Abstract;
 
-use App\Models\Abstract\AbstractEloquent;
-
+/**
+ * @template T
+ */
 abstract class AbstractEloquentTestCase extends AbstractTestCase {
 
     /**
      * 空インスタンスの生成
-     * @return AbstractEloquent
+     * @return T
      */
-    abstract public function emptyInstance(): AbstractEloquent;
+    abstract public function emptyInstance();
 
     /**
      * インスタンスの生成
-     * @return AbstractEloquent
+     * @return T
      */
-    abstract public function createInstance(): AbstractEloquent;
+    abstract public function createInstance();
 
     /**
      * 保存テスト
      */
     public function testSave(): int {
         //インスタンスの取得
+        /** @var T $eloquent */
         $eloquent = $this->createInstance();
         $count = $eloquent->count();
 
@@ -44,6 +46,7 @@ abstract class AbstractEloquentTestCase extends AbstractTestCase {
         $id = $this->testSave();
 
         //インスタンスの取得
+        /** @var T $eloquent */
         $eloquent = $this->emptyInstance()->findEloquent($id);
 
         //取得できること
