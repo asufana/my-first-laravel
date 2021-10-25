@@ -1,15 +1,15 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Unit\Models\Account;
+namespace Tests\Unit\Models\Group;
 
-use App\Models\Account\AccountEloquent;
 use App\Models\Abstract\AbstractEloquent;
+use App\Models\Group\GroupEloquent;
 use Tests\Unit\Models\Abstract\AbstractEloquentTestCase;
 
-class AccountEloquentTest extends AbstractEloquentTestCase {
+class GroupEloquentTest extends AbstractEloquentTestCase {
 
     public function emptyInstance(): AbstractEloquent {
-        return new AccountEloquent();
+        return new GroupEloquent();
     }
 
     public function createInstance(): AbstractEloquent {
