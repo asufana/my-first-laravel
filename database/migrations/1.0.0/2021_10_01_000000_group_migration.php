@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
 use App\Models\Abstract\AbstractMigration;
-use App\Models\Account\AccountEloquent;
+use App\Models\Group\GroupEloquent;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AccountMigration extends AbstractMigration
+class GroupMigration extends AbstractMigration
 {
     public function up(): void {
-        Schema::create(AccountEloquent::TABLE_NAME, function (Blueprint $table) {
+        Schema::create(GroupEloquent::TABLE_NAME, function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->unique();
             $table->string('memo', 255)->nullable();

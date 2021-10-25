@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
-namespace App\Models\Account;
+namespace App\Models\Group;
 
 use App\Models\Abstract\AbstractEloquent;
 
 /**
  * @property string name
  */
-class AccountEloquent extends AbstractEloquent {
+class GroupEloquent extends AbstractEloquent {
     //Laravelへテーブル名指示
-    public const TABLE_NAME = 'account';
+    public const TABLE_NAME = 'group';
     protected $table = self::TABLE_NAME;
 }
